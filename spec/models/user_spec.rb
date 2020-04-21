@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  it 'should have valid Factory' do
+    expect(FactoryBot.create(:user)).to be_valid
+  end
+
   describe '#user table column' do
     it { is_expected.to have_db_column :id }
     it { is_expected.to have_db_column :first_name }
@@ -36,5 +40,29 @@ RSpec.describe User, type: :model do
       expect { user_without_last_name.save!(validate: false)}.to raise_error(ActiveRecord::NotNullViolation)
     end
   end
-  
+  describe "#creating user" do
+    it 'creates user with valid attributes' do
+      user = FactoryBot.create(:user)
+      expect(user.first_name).to eq 'John' 
+      expect(user.balance).to eq 0.0 
+      expect(user.pin).to eq "1234" 
+    end
+    # it "do not allow existing phone number" do
+    #   FactoryBot.create(:user) 
+    #   user = FactoryBot.build(:user, phone_number:  "070000000000", id_number: "0000000")
+    #   user.save 
+    #   expect(user).not_to be_valid 
+    #   expect(user.errors.messages[:phone_number]).to eq ["has already been taken"] 
+    # end
+    it "do not allow phone number that are less than 10" do
+      user = FactoryBot.build(:user, phone_number: "12345678")
+      user.save        
+      expect(user.errors.messages[:phone_number]).to eq ["is too short (minimum is 10 characters)"]
+    end
+    it "do not allow phone number that is greater than 13" do
+      user = FactoryBot.build(:user, phone_number: "12345678910112221")
+      user.save
+      expect(user.errors.messages[:phone_number]).to eq ["is too long (maximum is 13 characters)"]
+    end
+  end
 end
