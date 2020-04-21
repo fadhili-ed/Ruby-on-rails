@@ -64,5 +64,21 @@ RSpec.describe User, type: :model do
       user.save
       expect(user.errors.messages[:phone_number]).to eq ["is too long (maximum is 13 characters)"]
     end
+    it "do not allow id_number that are less than 7" do
+      user = FactoryBot.build(:user, id_number: "123456")
+      user.save
+      expect(user.errors.messages[:id_number]).to eq ["is too short (minimum is 7 characters)"]
+    end
+    it "do not allow id_number that are more than 9" do
+      user = FactoryBot.build(:user, id_number: "123456789101")
+      user.save
+      expect(user.errors.messages[:id_number]).to eq ["is too long (maximum is 9 characters)"]
+    end
+    it "do not allow passwords that are less than 8 characters" do
+      user = FactoryBot.build(:user, password: "2301you")
+      user.save
+      expect(user.errors.messages[:password]).to eq ["is too short (minimum is 8 characters)"]
+    end
+    
   end
 end
