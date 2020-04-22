@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :deposit do
-    first_name { "MyString" }
-    last_name { "MyString" }
+    first_name { "Luke" }
+    last_name { "Loot" }
     deposits { "123456" }
   end
 end
