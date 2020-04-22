@@ -9,6 +9,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.float :balance, null: false, default: 0.0
       t.string :password,
 
+
       t.timestamps
     end
   end
