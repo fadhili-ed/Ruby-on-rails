@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :phone_number, null: false
       t.string :pin, default: "1234"
       t.float :balance, null: false, default: 0.0
-      t.string :password, 
+      t.string :password,
 
       t.timestamps
     end

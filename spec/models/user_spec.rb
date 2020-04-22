@@ -22,6 +22,10 @@ RSpec.describe User, type: :model do
     it { is_expected.to validate_presence_of(:password) }
     it { is_expected.to validate_length_of(:pin)}
     it { is_expected.to validate_numericality_of(:pin)}
+    it "requires a secure password" do
+      expect(:password).to match(/\A[a-zA-Z]+\z/)
+    end
+    # it "requires password is same as password_confirmation"
     # it { is_expected.to validate_uniqueness_of(:phone_number)}
     # it { is_expected.to validate_uniqueness_of(:id_number)}
     it { is_expected.to validate_length_of(:first_name)}
@@ -31,7 +35,7 @@ RSpec.describe User, type: :model do
     it { is_expected.to validate_length_of(:phone_number)}
     it { is_expected.to validate_numericality_of(:phone_number)}
     it "raise database error when user attributes are null" do
-      valid_user_attrs = { first_name: "Jane", last_name: "Doe", id_number: 1234567, phone_number: "0700000000", pin: 1234, password: "PassWord@123."}
+      valid_user_attrs = { first_name: "Jane", last_name: "Doe", id_number: 1234567, phone_number: "0700000000", pin: 1234, password: "PassWordLol"}
       user_without_first_name_attr =   valid_user_attrs.slice(:last_name,:id_number,:phone_number, :pin, :password)
       user_without_first_name = User.new(user_without_first_name_attr)
       expect { user_without_first_name.save!(validate: false)}.to raise_error(ActiveRecord::NotNullViolation)
@@ -54,6 +58,12 @@ RSpec.describe User, type: :model do
     #   expect(user).not_to be_valid 
     #   expect(user.errors.messages[:phone_number]).to eq ["has already been taken"] 
     # end
+    it "do not allow phone number that is not digit" do
+      user = FactoryBot.build(:user, phone_number: "abc12345679") 
+      user.save  
+      expect(user).not_to be_valid 
+      expect(user.errors.messages[:phone_number]).to eq ["is not a number"]
+    end
     it "do not allow phone number that are less than 10" do
       user = FactoryBot.build(:user, phone_number: "12345678")
       user.save        
@@ -75,7 +85,7 @@ RSpec.describe User, type: :model do
       expect(user.errors.messages[:id_number]).to eq ["is too long (maximum is 9 characters)"]
     end
     it "do not allow passwords that are less than 8 characters" do
-      user = FactoryBot.build(:user, password: "2301you")
+      user = FactoryBot.build(:user, password: "Yuoyou")
       user.save
       expect(user.errors.messages[:password]).to eq ["is too short (minimum is 8 characters)"]
     end
