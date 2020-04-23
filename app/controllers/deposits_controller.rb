@@ -8,7 +8,10 @@ class DepositsController < ApplicationController
         else
           render 'new'
         end
-      end
+    end
+    def show
+        @deposit = Deposit.find(params[:id])
+    end
     
     private
       def deposit_params
