@@ -7,5 +7,8 @@ Rails.application.routes.draw do
   get 'deposits/new', to: 'deposits#new', as: 'new_deposit'
   post 'deposits/', to: 'deposits#create'
   get 'deposits/:id', to: 'deposits#show', as: 'deposit'
+
+  get '/withdrawals/new', to: 'withdrawals#new', as: 'new_withdrawal'
+  post 'withdrawals/', to: 'withdrawals#create'
   
 end
