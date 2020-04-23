@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(version: 2020_04_23_175456) do
   end
 
   create_table "withdraws", force: :cascade do |t|
-    t.string "pin"
-    t.string "amount"
-    t.string "id_number"
+    t.string "pin", null: false
+    t.string "amount", null: false
+    t.string "id_number", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
