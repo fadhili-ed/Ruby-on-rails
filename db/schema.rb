@@ -24,11 +24,11 @@ ActiveRecord::Schema.define(version: 2020_04_24_182622) do
   end
 
   create_table "sends", force: :cascade do |t|
-    t.string "sender_phone_number"
-    t.string "recepient_phone_number"
-    t.string "sender_id_number"
-    t.string "amount"
-    t.string "pin"
+    t.string "sender_phone_number", null: false
+    t.string "recepient_phone_number", null: false
+    t.string "sender_id_number", null: false
+    t.string "amount", null: false
+    t.string "pin", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

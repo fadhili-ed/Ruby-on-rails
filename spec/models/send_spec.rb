@@ -14,6 +14,8 @@ RSpec.describe Send, type: :model do
     it { is_expected.to validate_presence_of(:sender_id_number)}
     it { is_expected.to validate_presence_of(:recepient_phone_number)}
     it { is_expected.to validate_presence_of(:sender_phone_number)}
+    it { is_expected.to validate_length_of(:sender_phone_number)}
+    it { is_expected.to validate_length_of(:recepient_phone_number)}
     it { is_expected.to validate_presence_of(:amount)}
     it { is_expected.to validate_presence_of(:pin)}
     it { is_expected.to validate_length_of(:sender_id_number)}
@@ -21,4 +23,22 @@ RSpec.describe Send, type: :model do
     it { is_expected.to validate_numericality_of(:pin)}
     it { is_expected.to validate_numericality_of(:sender_id_number)}
   end
+
+  it "ensures db is safe  and attributes are not null" do
+    valid_send_attrs = { pin:1234, amount:'500', sender_id_number: 234587, sender_phone_number: "0702564851", recepient_phone_number: "0745896239"}
+    send_without_amount_attr = valid_send_attrs.slice(:sender_id_number, :sender_phone_number, :recepient_phone_number, :pin) 
+    send_without_amount = Send.new(send_without_amount_attr)
+    expect { send_without_amount.save!(validate: false)}.to raise_error(ActiveRecord::NotNullViolation)
+    send_without_pin_attr = valid_send_attrs.slice(:sender_id_number, :sender_phone_number, :recepient_phone_number, :amount)
+    send_without_pin = Send.new(send_without_pin_attr)
+    expect { send_without_pin.save!(validate: false)}.to raise_error(ActiveRecord::NotNullViolation)
+    send_without_sender_phone_number_attr = valid_send_attrs.slice(:sender_id_number, :pin, :recepient_phone_number, :amount)
+    send_without_sender_phone_number = Send.new(send_without_sender_phone_number_attr)
+    expect { send_without_sender_phone_number.save!(validate: false)}.to raise_error(ActiveRecord::NotNullViolation)
+    send_without_recepient_phone_number_attr = valid_send_attrs.slice(:sender_id_number, :sender_phone_number, :pin, :amount)
+    send_without_recepient_phone_number = Send.new(send_without_recepient_phone_number_attr)
+    expect { send_without_recepient_phone_number.save!(validate: false)}.to raise_error(ActiveRecord::NotNullViolation)
+  end
+
+  
 end
