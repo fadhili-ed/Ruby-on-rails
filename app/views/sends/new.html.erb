@@ -1,0 +1,25 @@
+<%= form_with scope: :send, url: new_send_path, local: true do |form| %>
+  <p>
+    <%= form.label :sender_phone_number %><br>
+    <%= form.text_field :sender_phone_number %>
+  </p>
+  <p>
+    <%= form.label :recepient_phone_number %><br>
+    <%= form.text_field :recepient_phone_number %>
+  </p>
+  <p>
+    <%= form.label :sender_id_number %><br>
+    <%= form.text_field :sender_id_number %>
+  </p>
+  <p>
+    <%= form.label :pin %><br>
+    <%= form.text_field :pin %>
+  </p>
+  <p>
+    <%= form.label :amount %><br>
+    <%= form.password_field :amount %>
+  </p>
+  <p>
+    <%= form.submit "Send" %>
+  </p>
+<% end %>

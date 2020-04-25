@@ -10,5 +10,9 @@ Rails.application.routes.draw do
 
   get '/withdrawals/new', to: 'withdrawals#new', as: 'new_withdrawal'
   post 'withdrawals/', to: 'withdrawals#create'
-  
+
+
+  get 'send/new', to: 'sends#new', as: 'new_send'
+  post 'send/new', to: 'sends#create'
+  get 'send/:id', to: 'sends#show', as: 'send'  
 end
