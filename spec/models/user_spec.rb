@@ -22,7 +22,7 @@ RSpec.describe User, type: :model do
     it { is_expected.to validate_presence_of(:password) }
     it { is_expected.to validate_length_of(:pin)}
     it { is_expected.to validate_numericality_of(:pin)}
-    it "requires a secure password" do
+    it "password should be letters only" do
       expect(:password).to match(/\A[a-zA-Z]+\z/)
     end
     # it "requires password is same as password_confirmation"
