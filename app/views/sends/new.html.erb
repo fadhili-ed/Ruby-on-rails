@@ -1,18 +1,4 @@
-<%= form_with scope: :send, url: new_send_path, local: true do |form| %>
-
-<% if @send.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@send.errors.count, "error") %> prohibited
-        this transaction from being sent:
-      </h2>
-      <ul>
-        <% @send.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_with model: @send, local: true do |form| %>    
 
   <p>
     <%= form.label :sender_phone_number %><br>
