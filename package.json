@@ -1,4 +1,5 @@
 {
+  "name": "blog",
   "name": "mpesa_app",
   "private": true,
   "dependencies": {
