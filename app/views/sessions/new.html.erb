@@ -1,0 +1,13 @@
+<%= form_with scope: :session, url: login_path, local: true do |f| %>
+<p>
+  <%= f.label :phone_number %>
+  <%= f.text_field :phone_number%><br>
+</p>
+<p>
+  <%= f.label :password %>
+  <%= f.password_field :password%><br>
+</p>
+
+<p><%= f.submit "Log in"%></p><br>
+<% end %>
+<p>New user? <%= link_to "Sign up now!", new_user_path %></p>
