@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new', as: 'login'
   post '/login', to: 'sessions#create'
 
+  delete '/logout', to: 'sessions#destroy'
+
   get 'deposits/new', to: 'deposits#new', as: 'new_deposit'
   post 'deposits/', to: 'deposits#create'
   get 'deposits/:id', to: 'deposits#show', as: 'deposit'
