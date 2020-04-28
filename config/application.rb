@@ -35,3 +35,4 @@ module MpesaApp
     config.generators.system_tests = nil
   end
 end
+end
