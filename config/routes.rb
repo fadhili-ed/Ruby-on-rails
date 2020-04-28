@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
+  get 'statics/home'
   get 'welcome/index'
   
   resources :articles do
     resources :comments
   end
 
-  root 'welcome#index'
+  # root 'welcome#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get 'users/new', to: 'users#new', as: 'new_user'
   post 'users/', to: 'users#create'
@@ -22,4 +23,5 @@ Rails.application.routes.draw do
   get 'send/new', to: 'sends#new', as: 'new_send'
   post 'send/new', to: 'sends#create'
   get 'send/:id', to: 'sends#show', as: 'send'  
+  root to: 'statics#home'
 end
