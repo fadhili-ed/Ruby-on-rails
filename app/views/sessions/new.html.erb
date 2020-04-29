@@ -1,0 +1,12 @@
+<div id="login-page">
+  <div class="center">
+    <%= form_with scope: :session, url: login_path, local: true do |f| %>
+        <%= f.label :phone_number %><br>
+        <%= f.text_field :phone_number, data: {validate_phone: true, confirm: 'Are you sure?'} %><br>
+        <%= f.label :password %><br>
+        <%= f.password_field :password%><br>
+      <%= f.submit "Log in"%>
+    <% end %>
+  </div>
+</div>
+<p class="signup-link">New user? <%= link_to "Sign up now!", new_user_path %></p>

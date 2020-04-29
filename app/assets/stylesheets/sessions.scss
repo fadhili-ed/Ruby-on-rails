@@ -1,0 +1,36 @@
+// Place all the styles related to the Sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+.signup-link {
+    text-align: center;
+}
+input {
+    width: 100%;
+}
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: teal;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.invalid {
+    border-color: red;
+  }
+.valid {
+    border-color: green;
+}

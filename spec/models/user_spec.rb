@@ -22,15 +22,9 @@ RSpec.describe User, type: :model do
     it { is_expected.to validate_presence_of(:phone_number) }
     it { is_expected.to validate_length_of(:pin)}
     it { is_expected.to validate_numericality_of(:pin)}
-    # it "password should be letters only" do
-    #   expect(:password).to match(/\A[a-zA-Z]+\z/)
-    # end
-    # it "requires password is same as password_confirmation"
-    # it { is_expected.to validate_uniqueness_of(:phone_number)}
-    # it { is_expected.to validate_uniqueness_of(:id_number)}
+   
     it { is_expected.to validate_length_of(:first_name)}
     it { is_expected.to validate_length_of(:last_name)}
-    # it { is_expected.to validate_length_of(:password)}
     it { is_expected.to validate_length_of(:id_number)}
     it { is_expected.to validate_length_of(:phone_number)}
     it { is_expected.to validate_numericality_of(:phone_number)}
