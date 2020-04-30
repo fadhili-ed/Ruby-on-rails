@@ -1,9 +1,9 @@
-class SendsController < ApplicationController
-    def new
-        # @send = Send.find(params[:ids])
-    end
+# frozen_string_literal: true
 
-    def create
-    
-    end
+class SendsController < ApplicationController
+  def new
+    # @send = Send.find(params[:ids])
+  end
+
+  def create; end
 end
