@@ -1,0 +1,5 @@
+language: ruby
+script:
+  - rails db:migrate RAILS_ENV=test
+  - bundle exec cucumber
+  - bundle exec rspec
