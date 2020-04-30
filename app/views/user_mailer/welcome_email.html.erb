@@ -8,6 +8,8 @@
     <p>
       You have successfully signed up to example.com,
       your username is: <%= @user.login %>.<br>
+      this is our image:
+      <%= image_tag attachments['brave.jpg'].url %>
     </p>
     <p>
       To login to the site, just follow this link: <%= @url %>.
