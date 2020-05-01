@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class DepositsController < ApplicationController
-  def new; end
+  def new
+    @deposit = Deposit.new
+  end
 
   def create
     @deposit = Deposit.new(deposit_params)
@@ -18,7 +20,7 @@ class DepositsController < ApplicationController
 
   private
 
-  def deposit_params
-    params.require(:deposit).permit(:first_name, :last_name, :deposits)
-  end
+    def deposit_params
+      params.require(:deposit).permit(:first_name, :last_name, :deposits)
+    end
 end

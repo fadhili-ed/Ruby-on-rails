@@ -25,3 +25,15 @@ And I should see "Id number: 12345678"
 And I should see "Phone number: 070000000000"
 And I should see "Pin: 1234"
 And I should see "Balance: 0.0"
+
+Scenario: User sees errors with invalid inputs
+Given I am on the signup page
+When I fill in "First name" with "Jane"
+Then I fill in "Last name" with "Doe"
+Then I fill in "Id number" with "12455682"
+Then I click Create Account
+Then I should see "Password is too short"
+And I should see "Phone number is too short"
+Then I should see "Password can't be blank"
+Then I should see "Phone number can't be blank"
+Then I should see "Phone number should be digits only"

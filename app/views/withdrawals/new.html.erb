@@ -1,5 +1,5 @@
- <%= form_with scope: :withdraw, url: new_user_path, local: true do |form| %>
- <p>
+<%= form_with model: @withdraw, url: withdrawals_path do |form| %>
+  <p>
     <%= form.label :id_number %><br>
     <%= form.text_field :id_number %>
   </p>
@@ -14,4 +14,4 @@
   <p>
     <%= form.submit "Withdraw" %>
   </p>
-  <% end %>
+<% end %>

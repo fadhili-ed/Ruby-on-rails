@@ -1,0 +1,14 @@
+<%= form_with model: @withdraw do |form| %>
+  <p>
+    <%= form.label :amount %><br>
+    <%= form.text_field :amount %>
+  </p>
+  <p>
+    <%= form.label :pin %><br>
+    <%= form.text_field :pin %>
+  </p>
+  <p>
+    <%= form.label :id_number %><br>
+    <%= form.text_field :id_number %>
+  </p>
+<% end %>
