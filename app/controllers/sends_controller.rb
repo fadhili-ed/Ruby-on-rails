@@ -2,7 +2,7 @@ frozen_string_literal: true
 
 class SendsController < ApplicationController
   def new
-    @send = Send.find(params[:id])
+    @send = Send.new
   end
 
   def create; end
