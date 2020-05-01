@@ -19,9 +19,3 @@ end
 When('I click Create Account') do
   click_button('Create Account')
 end
-
-Then('I shoud be redirect to show page') do
-  user = User.find_by(id_number: '12455682')
-  user_id = user.id
-  visit "/users/#{user_id}"
-end
