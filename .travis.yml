@@ -1,4 +1,11 @@
 language: ruby
+services:
+  - postgresql
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
+  - bundle
+  - rm config/database.yml
+  - mv config/database.travis.yml config/database.yml
 script:
   - rails db:migrate RAILS_ENV=test
   - bundle exec cucumber
