@@ -7,6 +7,6 @@ before_script:
   - rm config/database.yml
   - mv config/database.travis.yml config/database.yml
 script:
-  - rails db:migrate RAILS_ENV=test
+  - bundle exec rails db:migrate RAILS_ENV=test
   - bundle exec cucumber
   - bundle exec rspec
