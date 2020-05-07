@@ -1,13 +1,22 @@
-<p>
-  <strong>First name:</strong>
-  <%= @deposit.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @deposit.last_name %>
-</p>
-<p>
-  <strong>Balance:</strong>
-  <%= @deposit.deposits %>
-</p>
+<div id = "deposit-page">
+  <table class = "deposit-form">
+    <tr>
+      <td><strong>First name:</strong></td>
+      <td><%= @deposit.first_name %></td>
+    </tr>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td><strong>Last name:</strong></td>
+      <td><%= @deposit.last_name %></td>
+    </tr>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td><strong>Balance:</strong></td>
+      <td><%= @deposit.deposits %></td>
+    </tr>
+  </table>
+</div>
