@@ -13,7 +13,6 @@ When I fill in "First name" with "Luke"
 And I fill in "Last name" with "Loot"
 And I fill in "Deposits" with "123456"
 And I click Deposit Amount
-Then I should be redirected to show page
 Then I should see "First name: Luke"
 Then I should see "Last name: Loot"
 Then I should see "Balance: 123456"
