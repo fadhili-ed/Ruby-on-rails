@@ -23,6 +23,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   host: localhost
   username: postgres
+  password: 'StrongP@ssword'
 
 development:
   <<: *default
@@ -32,8 +33,6 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  username: postgres
-
   # The password associated with the postgres role (username).
   #password:
 

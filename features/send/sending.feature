@@ -16,7 +16,6 @@ And I fill  in "Recepient phone number" with "0745896239"
 And I fill in "Pin" with "1234"
 And I fill in "Amount" with "5233"
 And I click Send
-Then I should be redirected to the show page
 Then I should see "Phone number: 0745896239"
 Then I should see "Id number: 02654225"
 Then I should see "Recepient phone number: 0745896239"
