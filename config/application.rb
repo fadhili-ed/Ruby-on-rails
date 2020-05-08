@@ -1,5 +1,6 @@
 require_relative 'boot'
 
+require 'rails/all'
 require "rails"
 # Pick the frameworks you want:
 require "active_model/railtie"
@@ -19,6 +20,7 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+module Blog
 module MpesaApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -32,4 +34,5 @@ module MpesaApp
     # Don't generate system test files.
     config.generators.system_tests = nil
   end
+end
 end
