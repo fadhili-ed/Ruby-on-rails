@@ -1,26 +1,44 @@
 <%= form_with model: @send, local: true do |form| %>    
-
-  <p>
-    <%= form.label :sender_phone_number %><br>
-    <%= form.text_field :sender_phone_number %>
-  </p>
-  <p>
-    <%= form.label :recepient_phone_number %><br>
-    <%= form.text_field :recepient_phone_number %>
-  </p>
-  <p>
-    <%= form.label :sender_id_number %><br>
-    <%= form.text_field :sender_id_number %>
-  </p>
-  <p>
-    <%= form.label :pin %><br>
-    <%= form.text_field :pin %>
-  </p>
-  <p>
-    <%= form.label :amount %><br>
-    <%= form.password_field :amount %>
-  </p>
-  <p>
-    <%= form.submit "Send" %>
-  </p>
+  <div id = "send-form">
+    <table class = "send-table">
+      <tr>
+        <td><%= form.label :sender_phone_number %></td>
+        <td><%= form.text_field :sender_phone_number %></td>
+      </tr>
+      <tr>
+        <td><br></td>
+      </tr>
+      <tr>
+        <td><%= form.label :recepient_phone_number %></td>
+        <td><%= form.text_field :recepient_phone_number %></td>
+      </tr>
+      <tr>
+        <td><br></td>
+      </tr>
+      <tr>
+        <td><%= form.label :sender_id_number %></td>
+        <td><%= form.text_field :sender_id_number %></td>
+      </tr>
+      <tr>
+        <td><br></td>
+      </tr>
+      <tr>
+        <td><%= form.label :pin %></td>
+        <td><%= form.text_field :pin %></td>
+      </tr>
+      <tr>
+        <td><br></td>
+      </tr>
+      <tr>
+        <td><%= form.label :amount %></td>
+        <td><%= form.password_field :amount %></td>
+      </tr>
+      <tr>
+        <td><br></td>
+      </tr>
+      <tr>
+        <td><%= form.submit "Send" %></td>
+      </tr>
+    </table>
+  </div>
 <% end %>

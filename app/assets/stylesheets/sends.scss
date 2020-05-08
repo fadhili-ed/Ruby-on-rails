@@ -1,0 +1,13 @@
+// Place all the styles related to the Statics controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+#send-form {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    background-color: papayawhip;
+    font-family: fantasy;
+    .send-table {
+        padding-top: 20vh;
+    }
+}
