@@ -10,8 +10,13 @@ class SendsController < ApplicationController
             render 'new'
         end
     end
+
+    def show
+        @send = Send.find(params[:id])
+    end
+
     private
         def send_params
-            params.require(:send).permit(:sender_phone_number, :recepient_phone_number, :sender_id_number, :pin, :amount)
+            params.permit(:sender_phone_number, :recepient_phone_number, :sender_id_number, :pin, :amount)
         end
 end
