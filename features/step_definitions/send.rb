@@ -13,9 +13,3 @@ Given("I am on the sending page") do
   When("I click Send") do
     click_button('Send')
   end
-  
-  Then("I should be redirected to the show page") do
-    send = Send.find_by(sender_id_number: "234587")
-    send_id = send.id
-    visit "/send/#{send_id}"
-  end
